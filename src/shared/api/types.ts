@@ -1,25 +1,9 @@
-export enum Type {
-  CLASSIC = 'CLASSIC',
-  SERVER_SIDE = 'SERVER_SIDE',
-  MVT = 'MVT',
-}
+export type Order = 'asc' | 'desc';
 
-export enum Status {
-  DRAFT = 'DRAFT',
-  ONLINE = 'ONLINE',
-  PAUSED = 'PAUSED',
-  STOPPED = 'STOPPED',
-}
+export type SortBy = 'name' | 'type' | 'status' | 'site';
 
-export interface Site {
-  id: number;
-  url: string;
-}
+export type SortTestsBy = 'name' | 'type';
 
-export interface Test {
-  id: number;
-  name: string;
-  type: Type;
-  status: Status;
-  siteId: number;
+export interface FetchRequest extends RequestInit {
+  params?: URLSearchParams;
 }

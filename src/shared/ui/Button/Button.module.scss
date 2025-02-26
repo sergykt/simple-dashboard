@@ -1,0 +1,35 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 9px 25px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-family: var(--second-family);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--white);
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &.primary {
+    background-color: var(--teal);
+  }
+
+  &.secondary {
+    background-color: var(--gray-neutral);
+  }
+}

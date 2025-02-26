@@ -1,2 +1,3 @@
-export { api } from './api';
-export { type Test, type Site } from './types';
+export { api, fetchClient } from './api';
+export { type SortTestsBy, type Order, type FetchRequest, type SortBy } from './types';
+export { useGetTests } from './queries';
