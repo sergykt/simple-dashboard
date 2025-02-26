@@ -13,8 +13,8 @@ interface GetSitesProps {
 
 export const useGetTests = (props: GetSitesProps) => {
   const { search, sortBy, order } = props;
-  const [tests, setTests] = useState<TestWithSite[]>([]);
-  const [sites, setSites] = useState<Site[]>([]);
+  const [tests, setTests] = useState<TestWithSite[] | undefined>();
+  const [sites, setSites] = useState<Site[] | undefined>();
 
   useEffect(() => {
     const getSites = async () => {
@@ -31,7 +31,7 @@ export const useGetTests = (props: GetSitesProps) => {
 
   useEffect(() => {
     const getTests = async () => {
-      if (sites.length === 0) return;
+      if (!sites) return;
 
       if (sortBy === 'site') {
         const testsResponse = await api.getTests(search);

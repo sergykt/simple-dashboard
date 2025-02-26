@@ -1,10 +1,11 @@
 import { Dashboard } from '@/widgets/Dashboard';
 import { Container } from '@/shared/ui/Container';
 import { PageTitle } from '@/shared/ui/PageTitle/PageTitle';
+import styles from './HomePage.module.scss';
 
 const HomePage = () => {
   return (
-    <Container>
+    <Container className={styles.wrapper}>
       <PageTitle title='Dashboard' />
       <Dashboard />
     </Container>

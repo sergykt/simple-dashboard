@@ -25,6 +25,10 @@
     opacity: 0.5;
   }
 
+  &:focus {
+    box-shadow: 0 0 6px var(--gray-neutral);
+  }
+
   &.primary {
     background-color: var(--teal);
   }

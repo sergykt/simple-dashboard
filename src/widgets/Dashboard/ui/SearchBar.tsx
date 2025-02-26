@@ -1,4 +1,4 @@
-import { ChangeEvent, type FC, memo, useState } from 'react';
+import { ChangeEvent, type FC, memo, useEffect, useState } from 'react';
 import { SearchIcon } from '@/shared/ui/icons/SearchIcon';
 import { useDebounce } from '@/shared/lib/helperHooks/useDebounce';
 import { plural } from '@/shared/lib/plural';
@@ -21,6 +21,12 @@ export const SearchBar: FC<SearchBarProps> = memo(({ count = 0 }) => {
     }
   };
 
+  useEffect(() => {
+    if (search === '') {
+      setInputValue('');
+    }
+  }, [search]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.iconWrapper}>
@@ -30,6 +36,7 @@ export const SearchBar: FC<SearchBarProps> = memo(({ count = 0 }) => {
         className={styles.input}
         type='text'
         value={inputValue}
+        id='search'
         aria-label='Search'
         onChange={onChange}
         placeholder='What test are you looking for?'
