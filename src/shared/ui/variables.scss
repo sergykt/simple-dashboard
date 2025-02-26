@@ -1,0 +1,41 @@
+:root {
+  // Font families
+  --font-family: 'Roboto', sans-serif; // Primary font
+  --second-family: 'Montserrat', sans-serif; // Secondary font
+  --third-family: 'Nunito', sans-serif; // Tertiary font
+
+  // Font size
+  --font-size-xs: 0.75rem; // 12px
+  --font-size-s: 0.875rem; // 14px
+  --font-size-m: 1rem; // 16px
+  --font-size-l: 1.125rem; // 18px
+  --font-size-xl: 1.625rem; // 26px
+
+  // Colors
+
+  --white: #fff;
+  --bg-color: #fafafa;
+
+  // Shades of gray
+  --black: #222;
+  --gray-dark: #474747;
+  --gray-medium: #5c5c5c;
+  --gray-light: #999;
+  --gray-lighter: #d1d1d1;
+  --gray-neutral: #7d7d7d;
+
+  // Accent colors
+  --green: #1bda9d;
+  --orange: #ff8346;
+  --red: #fe4848;
+  --teal: #2ee5ac;
+  --light-red: #e14165;
+  --light-purple: #c2c2ff;
+
+  // Gutters
+  --container-gutter: 0 40px;
+
+  @media (max-width: 576px) {
+    --container-gutter: 0 20px;
+  }
+}
