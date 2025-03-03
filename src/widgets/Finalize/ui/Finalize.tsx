@@ -1,17 +1,17 @@
-import { useCallback, type FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useGetTest } from '@/entities/tests';
 import { BackButton } from '@/shared/ui/BackButton';
-import { type LocationState } from '@/shared/model/types';
 import { APP_ROUTES } from '@/shared/const';
-import { TestDetails } from './TestDetails';
-import styles from './Results.module.scss';
+import { LocationState } from '@/shared/model/types';
+import { DraftDetails } from './DraftDetails';
+import styles from './Finalize.module.scss';
 
-export interface ResultsProps {
+interface FinalizeProps {
   id: number;
 }
 
-export const Results: FC<ResultsProps> = ({ id }) => {
+export const Finalize: FC<FinalizeProps> = ({ id }) => {
   const test = useGetTest(id);
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,7 +25,7 @@ export const Results: FC<ResultsProps> = ({ id }) => {
   return (
     <div className={styles.wrapper}>
       {test?.name && <h2 className={styles.subtitle}>{test.name}</h2>}
-      {test && <TestDetails test={test} />}
+      {test && <DraftDetails test={test} />}
       <BackButton className={styles.backButton} onClick={handleBack} />
     </div>
   );

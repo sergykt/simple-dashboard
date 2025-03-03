@@ -8,6 +8,10 @@
   border: 1px solid #ebebeb;
   border-radius: 15px;
   background-color: var(--white);
+
+  &:focus-within {
+    outline: 1px solid var(--black);
+  }
 }
 
 .input {

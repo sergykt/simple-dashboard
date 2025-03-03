@@ -23,3 +23,7 @@ export interface Test {
   status: Status;
   siteId: number;
 }
+
+export interface LocationState {
+  from: string;
+}
