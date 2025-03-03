@@ -11,6 +11,10 @@ Simple dashboard
 - **react-router-dom**
 - **Vite**
 
+## Deployment
+
+[https://simple-dashboard-ivory.vercel.app/](https://simple-dashboard-ivory.vercel.app/)
+
 ## Usage
 
 Install all required packages:
