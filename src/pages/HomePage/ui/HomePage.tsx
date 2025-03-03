@@ -6,7 +6,7 @@ import styles from './HomePage.module.scss';
 const HomePage = () => {
   return (
     <Container className={styles.wrapper}>
-      <PageTitle title='Dashboard' />
+      <PageTitle title='Dashboard' className={styles.title} />
       <Dashboard />
     </Container>
   );

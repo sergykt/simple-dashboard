@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 24px;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.legendMarker {
+  width: 16px;
+  height: 16px;
+
+  &.red {
+    background-color: var(--red);
+  }
+
+  &.blue {
+    background-color: var(--blue);
+  }
+}

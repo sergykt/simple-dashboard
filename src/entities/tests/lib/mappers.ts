@@ -2,11 +2,15 @@ import { type Site, Status, type Test } from '@/shared/model/types';
 import { type Order } from '@/shared/api';
 import { type TestWithSite } from '../model/types';
 
-export const addSiteToTest = (testsResponse: Test[], sites: Site[]): TestWithSite[] => {
+export const addSiteToTests = (testsResponse: Test[], sites: Site[]): TestWithSite[] => {
   return testsResponse.map((test) => {
     const site = sites.find((item) => item.id === test.siteId)!;
     return { ...test, site: site.url };
   });
+};
+
+export const addSiteToTest = (test: Test, site: Site): TestWithSite => {
+  return { ...test, site: site.url };
 };
 
 export const sortTestsBySite = (tests: TestWithSite[], order: Order = 'asc'): TestWithSite[] =>

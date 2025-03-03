@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { removeUrlPrefix } from '@/shared/lib/removeUrlPrefix';
 import { api, type Order, type SortBy } from '@/shared/api';
 import { type Site } from '@/shared/model/types';
-import { addSiteToTest, sortTestsBySite, sortTestsByStatus } from '../lib/mappers';
+import { addSiteToTest, addSiteToTests, sortTestsBySite, sortTestsByStatus } from '../lib/mappers';
 import { TestWithSite } from '../model/types';
 
 interface GetSitesProps {
@@ -35,20 +35,20 @@ export const useGetTests = (props: GetSitesProps) => {
 
       if (sortBy === 'site') {
         const testsResponse = await api.getTests(search);
-        const testsWithSite = addSiteToTest(testsResponse, sites);
+        const testsWithSite = addSiteToTests(testsResponse, sites);
         const sortedTests = sortTestsBySite(testsWithSite, order);
         sortTestsBySite(sortedTests, order);
 
         setTests(testsWithSite);
       } else if (sortBy === 'status') {
         const testsResponse = await api.getTests(search);
-        const testsWithSite = addSiteToTest(testsResponse, sites);
+        const testsWithSite = addSiteToTests(testsResponse, sites);
         const sortedTests = sortTestsByStatus(testsWithSite, order);
 
         setTests(sortedTests);
       } else {
         const testsResponse = await api.getTests(search, order, sortBy);
-        const testsWithSite = addSiteToTest(testsResponse, sites);
+        const testsWithSite = addSiteToTests(testsResponse, sites);
 
         setTests(testsWithSite);
       }
@@ -58,4 +58,29 @@ export const useGetTests = (props: GetSitesProps) => {
   }, [search, sortBy, order, sites]);
 
   return tests;
+};
+
+export const useGetTest = (id: number) => {
+  const [test, setTests] = useState<TestWithSite | undefined>();
+
+  useEffect(() => {
+    const getTest = async () => {
+      const testResponse = await api.getTestById(id);
+      if (!testResponse) return;
+
+      const site = await api.getSiteById(testResponse.siteId);
+
+      if (site) {
+        site.url = removeUrlPrefix(site.url);
+
+        setTests(addSiteToTest(testResponse, site));
+      } else {
+        setTests({ ...testResponse, site: '' });
+      }
+    };
+
+    getTest().catch(console.error);
+  }, [id]);
+
+  return test;
 };

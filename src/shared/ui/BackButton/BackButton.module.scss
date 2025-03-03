@@ -1,0 +1,15 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  gap: 18px;
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: var(--font-size-l);
+
+  &:focus {
+    outline: 1px solid var(--gray-light);
+  }
+}

@@ -1,0 +1,45 @@
+.wrapper {
+  flex: 1 1 0;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.site {
+  font-weight: 500;
+  font-size: var(--font-size-m);
+}
+
+.type {
+  font-weight: 500;
+  font-size: var(--font-size-m);
+}
+
+.status {
+  font-weight: 500;
+  font-size: var(--font-size-m);
+
+  &.online {
+    color: var(--green);
+  }
+
+  &.paused {
+    color: var(--orange);
+  }
+
+  &.stopped {
+    color: var(--red);
+  }
+}
+
+.chart {
+  margin-top: 50px;
+}

@@ -12,7 +12,7 @@ interface TestItemProps {
 }
 
 export const TestItem: FC<TestItemProps> = memo(({ test }) => {
-  const { site, name, type, status } = test;
+  const { site, name, type, status, id } = test;
   const navigate = useNavigate();
 
   const statusClass = classNames(styles.status, {
@@ -28,15 +28,15 @@ export const TestItem: FC<TestItemProps> = memo(({ test }) => {
       <div className={styles.type}>{TYPE_MAP[type]}</div>
       <div className={statusClass}>{STATUS_MAP[status]}</div>
       <div className={styles.site}>{site}</div>
-      {status === Status.DRAFT ? (
-        <Button className={styles.button} onClick={() => navigate(APP_ROUTES.RESULTS())}>
+      {status !== Status.DRAFT ? (
+        <Button className={styles.button} onClick={() => navigate(APP_ROUTES.RESULTS(id))}>
           Results
         </Button>
       ) : (
         <Button
           className={styles.button}
           variant='secondary'
-          onClick={() => navigate(APP_ROUTES.FINALIZE())}
+          onClick={() => navigate(APP_ROUTES.FINALIZE(id))}
         >
           Finalize
         </Button>

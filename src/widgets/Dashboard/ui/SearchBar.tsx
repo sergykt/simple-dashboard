@@ -40,6 +40,7 @@ export const SearchBar: FC<SearchBarProps> = memo(({ count = 0 }) => {
         aria-label='Search'
         onChange={onChange}
         placeholder='What test are you looking for?'
+        autoComplete='off'
       />
       <div className={styles.count}>
         {`${count} ${plural(count, { one: 'test', other: 'tests' })}`}
