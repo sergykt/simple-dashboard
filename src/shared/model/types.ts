@@ -23,5 +23,3 @@ export interface Test {
   status: Status;
   siteId: number;
 }
-
-export type TestWithSite = Omit<Test, 'siteId'> & { site: Site['url'] };

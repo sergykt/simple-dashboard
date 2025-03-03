@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { api } from './api';
-import { type Order, type SortBy } from './types';
-import { addSiteToTest, sortTestsBySite, sortTestsByStatus } from './mappers';
-import { removeUrlPrefix } from '../lib/removeUrlPrefix';
-import { type Site, type TestWithSite } from '../model/types';
+import { removeUrlPrefix } from '@/shared/lib/removeUrlPrefix';
+import { api, type Order, type SortBy } from '@/shared/api';
+import { type Site } from '@/shared/model/types';
+import { addSiteToTest, sortTestsBySite, sortTestsByStatus } from '../lib/mappers';
+import { TestWithSite } from '../model/types';
 
 interface GetSitesProps {
   search?: string;

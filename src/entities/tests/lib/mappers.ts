@@ -1,5 +1,6 @@
-import { type Site, Status, type Test, TestWithSite } from '../model/types';
-import { type Order } from './types';
+import { type Site, Status, type Test } from '@/shared/model/types';
+import { type Order } from '@/shared/api';
+import { type TestWithSite } from '../model/types';
 
 export const addSiteToTest = (testsResponse: Test[], sites: Site[]): TestWithSite[] => {
   return testsResponse.map((test) => {

@@ -1,8 +1,9 @@
 import { type FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
+import { type TestWithSite } from '@/entities/tests';
 import { Button } from '@/shared/ui/Button';
-import { Status, type TestWithSite } from '@/shared/model/types';
+import { Status } from '@/shared/model/types';
 import { APP_ROUTES, STATUS_MAP, TYPE_MAP } from '@/shared/const';
 import styles from './TestItem.module.scss';
 
@@ -28,14 +29,14 @@ export const TestItem: FC<TestItemProps> = memo(({ test }) => {
       <div className={statusClass}>{STATUS_MAP[status]}</div>
       <div className={styles.site}>{site}</div>
       {status === Status.DRAFT ? (
-        <Button className={styles.button} onClick={() => navigate(APP_ROUTES.RESULTS)}>
+        <Button className={styles.button} onClick={() => navigate(APP_ROUTES.RESULTS())}>
           Results
         </Button>
       ) : (
         <Button
           className={styles.button}
           variant='secondary'
-          onClick={() => navigate(APP_ROUTES.FINALIZE)}
+          onClick={() => navigate(APP_ROUTES.FINALIZE())}
         >
           Finalize
         </Button>

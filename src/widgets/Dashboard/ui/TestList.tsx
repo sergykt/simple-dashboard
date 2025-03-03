@@ -1,7 +1,7 @@
 import { type FC, memo } from 'react';
-import { type TestWithSite } from '@/shared/model/types';
-import styles from './TestList.module.scss';
+import { type TestWithSite } from '@/entities/tests';
 import { TestItem } from './TestItem';
+import styles from './TestList.module.scss';
 
 interface TestListProps {
   tests: TestWithSite[];

@@ -1,4 +1,4 @@
-import { useGetTests } from '@/shared/api';
+import { useGetTests } from '@/entities/tests';
 import { Filters } from './Filters';
 import { SearchBar } from './SearchBar';
 import { TestList } from './TestList';

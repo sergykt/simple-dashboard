@@ -8,10 +8,22 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 3px;
-  border-left: 4px solid var(--red);
+  border-left: 4px solid;
   background-color: var(--white);
   white-space: nowrap;
   transition: 0.2s ease-in-out;
+
+  &:nth-child(3n + 1) {
+    border-color: var(--light-red);
+  }
+
+  &:nth-child(3n + 2) {
+    border-color: var(--light-purple);
+  }
+
+  &:nth-child(3n + 3) {
+    border-color: var(--light-blue-purple);
+  }
 
   &:hover {
     box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
